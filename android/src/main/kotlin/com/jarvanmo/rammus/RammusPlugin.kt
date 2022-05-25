@@ -37,6 +37,10 @@ class RammusPlugin(private val registrar: Registrar, private val methodChannel: 
             val pushService = PushServiceFactory.getCloudPushService()
             pushService.setPushIntentService(RammusPushIntentService::class.java)
         }
+        @JvmStatic
+        fun getMethodChannel(): MethodChannel? {
+            return RammusPushHandler.methodChannel
+        }
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
